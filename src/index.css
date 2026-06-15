@@ -1,0 +1,397 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Font Family */
+  --font-primary: 'Outfit', sans-serif;
+  
+  /* Color Palette - Light Mode Pastels */
+  --bg-gradient: linear-gradient(135deg, #f3f5ff 0%, #fff0f3 40%, #e6fafc 75%, #f7f3ff 100%);
+  --clay-bg: rgba(255, 255, 255, 0.7);
+  --clay-bg-solid: #ffffff;
+  --clay-bg-secondary: rgba(255, 255, 255, 0.4);
+  --text-primary: #2e2849;
+  --text-secondary: #635c7e;
+  --text-muted: #918aa8;
+  
+  /* Clay Shadows (Light Mode) */
+  /* Outer shadows (drop) and inner shadows (inset) are combined to give the 3D clay feeling */
+  --clay-shadow: 
+    12px 12px 24px rgba(166, 171, 189, 0.35), 
+    -12px -12px 24px rgba(255, 255, 255, 0.9),
+    inset 4px 4px 8px rgba(255, 255, 255, 0.8), 
+    inset -4px -4px 8px rgba(166, 171, 189, 0.25);
+    
+  --clay-shadow-hover: 
+    16px 16px 32px rgba(166, 171, 189, 0.45), 
+    -16px -16px 32px rgba(255, 255, 255, 1),
+    inset 6px 6px 10px rgba(255, 255, 255, 0.9), 
+    inset -6px -6px 10px rgba(166, 171, 189, 0.3);
+
+  --clay-shadow-active: 
+    4px 4px 8px rgba(166, 171, 189, 0.25), 
+    -4px -4px 8px rgba(255, 255, 255, 0.8),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.8), 
+    inset -2px -2px 4px rgba(166, 171, 189, 0.15);
+
+  --clay-btn-shadow:
+    8px 8px 16px rgba(166, 171, 189, 0.25), 
+    -8px -8px 16px rgba(255, 255, 255, 0.9),
+    inset 3px 3px 6px rgba(255, 255, 255, 0.8), 
+    inset -3px -3px 6px rgba(166, 171, 189, 0.2);
+
+  --clay-btn-shadow-active:
+    3px 3px 6px rgba(166, 171, 189, 0.2), 
+    -3px -3px 6px rgba(255, 255, 255, 0.8),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.8), 
+    inset -1px -1px 2px rgba(166, 171, 189, 0.1);
+
+  --clay-input-shadow:
+    inset 4px 4px 8px rgba(166, 171, 189, 0.2), 
+    inset -4px -4px 8px rgba(255, 255, 255, 0.8),
+    4px 4px 8px rgba(166, 171, 189, 0.05),
+    -4px -4px 8px rgba(255, 255, 255, 0.5);
+
+  --clay-input-shadow-focus:
+    inset 5px 5px 10px rgba(166, 171, 189, 0.25), 
+    inset -5px -5px 10px rgba(255, 255, 255, 0.9),
+    4px 4px 8px rgba(166, 171, 189, 0.08),
+    -4px -4px 8px rgba(255, 255, 255, 0.6);
+
+  /* Clay Color Presets (Puffed colors) */
+  --clay-color-purple: #bfdbfe;
+  --clay-color-pink: #fecdd3;
+  --clay-color-blue: #93c5fd;
+  --clay-color-indigo: #c7d2fe;
+  --clay-color-mint: #a7f3d0;
+  --clay-color-yellow: #fef08a;
+  --clay-color-peach: #fed7aa;
+  
+  --clay-bg-purple: rgba(199, 210, 254, 0.5);
+  --clay-bg-pink: rgba(254, 205, 211, 0.5);
+  --clay-bg-blue: rgba(147, 197, 253, 0.5);
+  --clay-bg-mint: rgba(167, 243, 208, 0.5);
+  --clay-bg-yellow: rgba(254, 240, 138, 0.5);
+  --clay-bg-peach: rgba(254, 215, 170, 0.5);
+
+  /* UI Accents */
+  --accent-primary: #818cf8; /* Soft Indigo */
+  --accent-secondary: #f472b6; /* Soft Rose */
+  --accent-mint: #34d399; /* Soft Emerald */
+
+  --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.15s ease-out;
+}
+
+/* Dark Mode Theme */
+[data-theme='dark'] {
+  --bg-gradient: linear-gradient(135deg, #0e0f15 0%, #151221 40%, #0d1519 75%, #130f1d 100%);
+  --clay-bg: rgba(30, 32, 48, 0.65);
+  --clay-bg-solid: #1e2030;
+  --clay-bg-secondary: rgba(40, 43, 64, 0.45);
+  --text-primary: #f1f3f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #8a99ad;
+
+  /* Clay Shadows (Dark Mode) - Darker shadows for depth and lighter glowing insets */
+  --clay-shadow: 
+    10px 10px 20px rgba(0, 0, 0, 0.55), 
+    -10px -10px 20px rgba(50, 54, 80, 0.25),
+    inset 3px 3px 6px rgba(255, 255, 255, 0.1), 
+    inset -3px -3px 6px rgba(0, 0, 0, 0.45);
+    
+  --clay-shadow-hover: 
+    14px 14px 28px rgba(0, 0, 0, 0.65), 
+    -14px -14px 28px rgba(50, 54, 80, 0.35),
+    inset 4px 4px 8px rgba(255, 255, 255, 0.15), 
+    inset -4px -4px 8px rgba(0, 0, 0, 0.55);
+
+  --clay-shadow-active: 
+    4px 4px 8px rgba(0, 0, 0, 0.45), 
+    -4px -4px 8px rgba(50, 54, 80, 0.2),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.08), 
+    inset -1px -1px 2px rgba(0, 0, 0, 0.35);
+
+  --clay-btn-shadow:
+    6px 6px 12px rgba(0, 0, 0, 0.45), 
+    -6px -6px 12px rgba(50, 54, 80, 0.2),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1), 
+    inset -2px -2px 4px rgba(0, 0, 0, 0.35);
+
+  --clay-btn-shadow-active:
+    2px 2px 4px rgba(0, 0, 0, 0.4), 
+    -2px -2px 4px rgba(50, 54, 80, 0.15),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.05), 
+    inset -1px -1px 2px rgba(0, 0, 0, 0.25);
+
+  --clay-input-shadow:
+    inset 3px 3px 6px rgba(0, 0, 0, 0.4), 
+    inset -3px -3px 6px rgba(50, 54, 80, 0.15),
+    4px 4px 8px rgba(0, 0, 0, 0.15);
+
+  --clay-input-shadow-focus:
+    inset 4px 4px 8px rgba(0, 0, 0, 0.5), 
+    inset -4px -4px 8px rgba(50, 54, 80, 0.25),
+    4px 4px 8px rgba(0, 0, 0, 0.2);
+
+  /* Dark Clay Color Presets (glowing slightly darker pastel) */
+  --clay-bg-purple: rgba(129, 140, 248, 0.25);
+  --clay-bg-pink: rgba(244, 114, 182, 0.25);
+  --clay-bg-blue: rgba(96, 165, 250, 0.25);
+  --clay-bg-mint: rgba(52, 211, 153, 0.25);
+  --clay-bg-yellow: rgba(250, 204, 21, 0.25);
+  --clay-bg-peach: rgba(251, 146, 60, 0.25);
+}
+
+/* Base resets */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: var(--bg-gradient);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background 0.5s ease, color 0.5s ease;
+  line-height: 1.6;
+}
+
+/* Main Container Layout */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex-grow: 1;
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 60px;
+}
+
+/* Typography elements */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.25;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--clay-bg);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  border-radius: 10px;
+  box-shadow: 
+    3px 3px 6px rgba(0, 0, 0, 0.1) inset, 
+    -3px -3px 6px rgba(255, 255, 255, 0.5) inset;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  border-radius: 10px;
+}
+
+/* Background Animated Bubbles */
+.bubble-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bg-bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--clay-bg-secondary);
+  box-shadow: var(--clay-shadow);
+  animation: float 20s infinite ease-in-out;
+}
+
+.bg-bubble:nth-child(1) {
+  width: 150px;
+  height: 150px;
+  top: 15%;
+  left: 5%;
+  background: var(--clay-bg-purple);
+  animation-duration: 25s;
+}
+
+.bg-bubble:nth-child(2) {
+  width: 200px;
+  height: 200px;
+  bottom: 10%;
+  right: 8%;
+  background: var(--clay-bg-pink);
+  animation-duration: 30s;
+  animation-delay: -5s;
+}
+
+.bg-bubble:nth-child(3) {
+  width: 120px;
+  height: 120px;
+  top: 60%;
+  left: -2%;
+  background: var(--clay-bg-blue);
+  animation-duration: 18s;
+  animation-delay: -2s;
+}
+
+.bg-bubble:nth-child(4) {
+  width: 80px;
+  height: 80px;
+  top: 8%;
+  right: 25%;
+  background: var(--clay-bg-mint);
+  animation-duration: 22s;
+  animation-delay: -10s;
+}
+
+.bg-bubble:nth-child(5) {
+  width: 100px;
+  height: 100px;
+  bottom: 40%;
+  left: 35%;
+  background: var(--clay-bg-yellow);
+  animation-duration: 28s;
+  animation-delay: -15s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-40px) rotate(180deg) scale(1.15);
+  }
+}
+
+/* Clay Elements Utility Classes */
+.clay-card {
+  background: var(--clay-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 28px;
+  padding: 30px;
+  box-shadow: var(--clay-shadow);
+  transition: var(--transition-spring);
+}
+
+.clay-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--clay-shadow-hover);
+}
+
+.clay-button {
+  background: var(--clay-bg);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  padding: 12px 28px;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  box-shadow: var(--clay-btn-shadow);
+  transition: var(--transition-spring);
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.clay-button:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+.clay-button:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: var(--clay-btn-shadow-active);
+}
+
+.clay-input {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.4);
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  color: var(--text-primary);
+  box-shadow: var(--clay-input-shadow);
+  transition: var(--transition-smooth);
+  outline: none;
+}
+
+[data-theme='dark'] .clay-input {
+  background: rgba(15, 17, 26, 0.45);
+}
+
+.clay-input:focus {
+  border-color: var(--accent-primary);
+  box-shadow: var(--clay-input-shadow-focus);
+}
+
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 45px;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 15%;
+  width: 70%;
+  height: 8px;
+  background: var(--accent-primary);
+  border-radius: 10px;
+  box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.5), inset -1px -1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations classes */
+.hover-float:hover {
+  animation: float-micro 2s infinite ease-in-out;
+}
+
+@keyframes float-micro {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+}
